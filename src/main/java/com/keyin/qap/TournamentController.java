@@ -43,6 +43,11 @@ public class TournamentController extends Member{
             }
         }
     }
+    @DeleteMapping("/tournament/{id}")
+    public void deleteTournament(@PathVariable Long id) {
+
+        crudRepo.deleteById(id);
+    }
 
 }
 

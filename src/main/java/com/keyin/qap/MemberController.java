@@ -43,5 +43,10 @@ public class MemberController {
         }
     }
     }
+    @DeleteMapping("/member/{id}")
+    public void deleteMember(@PathVariable Long id) {
+
+        crudRepo.deleteById(id);
+    }
 
 }
