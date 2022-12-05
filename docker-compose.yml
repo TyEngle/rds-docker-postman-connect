@@ -1,0 +1,19 @@
+version: '3'
+services:
+  myapp-main:
+  #next line is saying run image by specified name and a tag(following the colon)
+    image: docker-qap2:latest
+  #next line is for when it tries to spin up on port 8080 of local machine,
+  #forword it into the port inside container
+    ports:
+      - "8080:8080"
+    environment:
+    #this route is more for connecting locally
+#      - spring.datasource.url=jdbc:mysql://host.docker.internal:3306/spring_2022
+    #url to connect to database--uses RDS endpoint and MySQL schema name
+      - spring.datasource.url=jdbc:mysql://sdat-qap-db.cfetftmqj6lp.us-east-1.rds.amazonaws.com/tournaments-members-qap
+    #database password
+      - spring.datasource.password=Keyin2021
+    #database username
+      - spring.datasource.username=admin
+      - spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
